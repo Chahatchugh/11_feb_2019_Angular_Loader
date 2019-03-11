@@ -7,22 +7,22 @@ import { MatSpinner } from '@angular/material';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Scroll AngularJS';
-  items = Array(50);
-  value = false;
-  beforeScroll = true;
-  scrollvalue = false;
-  @HostListener ('window:scroll', ['$event']) windowScroll(event: any) {
+  title = 'Loader';
+  contents = Array(50);
+  afterLoader = false;
+  firstContent = true;
+  loader = false;
+  @HostListener ('window:scroll', ['$event']) LoaderFunction(event: any) {
     setTimeout(() => {
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        this.beforeScroll = false;
-        this.scrollvalue = true;
+        this.firstContent = false;
+        this.loader = true;
         setTimeout(() => {
-          this.scrollvalue = false;
-          this.value = true;
+          this.loader = false;
+          this.afterLoader = true;
         }, 1000);
     }
-    }, 3000);
+    }, 2000);
   }
 }
 
