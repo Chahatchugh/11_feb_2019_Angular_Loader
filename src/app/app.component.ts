@@ -22,7 +22,7 @@ export class AppComponent {
           this.afterLoader = true;
         }, 1000);
     }
-    }, 2000);
+    }, 1000);
   }
 }
 
